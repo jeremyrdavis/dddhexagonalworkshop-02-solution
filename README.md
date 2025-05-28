@@ -470,4 +470,12 @@ public class AttendeeService {
 
 ## Summary
 
+In this iteration, we implemented an Address value object to enhance the Attendee model. The address information is now properly encapsulated in a dedicated value object, following DDD principles. We updated the entire workflow from command handling through domain logic to persistence to support addresses, maintaining clean boundaries between the different layers of our hexagonal architecture.
+
 ### Key points
+- Value Objects: We implemented the Address as a value object - an immutable representation of address data without its own identity, following core DDD principles.
+- Domain Model Enhancement: We extended the Attendee aggregate to include address information, demonstrating how to evolve domain models while maintaining encapsulation.
+- Persistence Layer Updates: We created a dedicated AddressEntity with a one-to-one relationship to AttendeeEntity, showing how to map complex domain objects to relational storage.
+- Command Pattern: We modified the RegisterAttendeeCommand to include address information, illustrating how commands can evolve to capture new requirements.
+- Hexagonal Architecture: Throughout the changes, we maintained separation between domain, persistence, and infrastructure layers, demonstrating how hexagonal architecture allows for changes while maintaining boundaries.
+- Transaction Management: We used Quarkus transactions to ensure atomicity when persisting related entities, showing how to handle complex persistence operations.
