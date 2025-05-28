@@ -25,13 +25,13 @@ public class Attendee {
         this.address = address;
     }
 
-    public static AttendeeRegistrationResult registerAttendee(String email, String firstName, String lastName, Address address) {
+public static AttendeeRegistrationResult registerAttendee(String email) {
         // Here you would typically perform some business logic, like checking if the attendee already exists
         // and then create an event to publish.
-        AttendeeRegisteredEvent event = new AttendeeRegisteredEvent(email, this.getFullName());
-        return new AttendeeRegistrationResult(this, event);
+        Attendee attendee = new Attendee(email);
+        AttendeeRegisteredEvent event = new AttendeeRegisteredEvent(email, attendee.getFullName());
+        return new AttendeeRegistrationResult(attendee, event);
     }
-
     public String getEmail() {
         return email;
     }
